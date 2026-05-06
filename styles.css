@@ -92,6 +92,7 @@ a {
 
 .hero {
     overflow: hidden;
+    /* Fondo general del hero. La imagen principal del lado derecho está en index.html. */
     background-image:
         linear-gradient(rgba(247, 247, 247, .86), rgba(247, 247, 247, .86)),
         url("assets/fondo potada .webp");
@@ -171,6 +172,13 @@ a {
     top: 0;
     left: 24px;
     width: 192px;
+    transform: rotate(1deg);
+}
+
+.hero__photo--combo {
+    top: 8px;
+    left: 0;
+    width: min(100%, 390px);
     transform: rotate(1deg);
 }
 
