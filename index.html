@@ -3,104 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensalada | Landing Page</title>
+    <title>Ensalada | Fresco, rico y saludable</title>
     <link rel="icon" type="image/webp" href="assets/favicon.webp">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Righteous&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'ensalada-naranja': '#F47C3A',
-                        'ensalada-verde': '#8CA966',
-                        'ensalada-marron': '#D8AD8C',
-                        'ensalada-violeta': '#A981B6',
-                        'gris-contacto': '#E6E7E8',
-                        'gris-oscuro': '#D2D3D5',
+                        naranja: '#f57a36',
+                        verde: '#8cab67',
+                        violeta: '#a77ab4',
+                        arena: '#d8ad8c',
+                        gris: '#e4e4e4',
+                        texto: '#55504b'
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        title: ['Righteous', 'cursive'],
+                        sans: ['Poppins', 'sans-serif']
+                    },
+                    boxShadow: {
+                        suave: '0 18px 45px rgba(70, 58, 48, .16)'
                     }
                 }
             }
         }
     </script>
     <style>
-        .floating-element { animation: float 6s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        body {
+            background: #fff;
+        }
+
+        .paper-bg {
+            background-image:
+                linear-gradient(rgba(247, 247, 247, .86), rgba(247, 247, 247, .86)),
+                url("assets/fondo potada .webp");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .soft-shape {
+            border-radius: 38% 62% 64% 36% / 44% 38% 62% 56%;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .25s ease;
+        }
+
+        details[open] .faq-content {
+            max-height: 220px;
+        }
+
+        details[open] .faq-plus {
+            transform: rotate(45deg);
         }
     </style>
 </head>
-<body class="bg-[#f9f9f9] font-sans">
+<body class="font-sans text-text">
+    <header class="paper-bg relative overflow-hidden">
+        <div class="mx-auto grid min-h-[690px] max-w-5xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
+            <div class="mx-auto max-w-[300px] text-center md:ml-auto">
+                <img src="assets/logotipo portada.webp" alt="Ensalada" class="mx-auto w-52">
+                <h1 class="mt-8 space-y-2 text-[25px] font-extrabold leading-tight text-white">
+                    <span class="inline-block bg-naranja px-3 py-1">Donde la frescura y el</span>
+                    <span class="inline-block bg-naranja px-3 py-1">sabor se unen para</span>
+                    <span class="inline-block bg-naranja px-3 py-1">crear combinaciones</span>
+                    <span class="inline-block bg-naranja px-3 py-1">infinitas y perfectas.</span>
+                </h1>
+            </div>
 
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center" 
-            style="background-image: url('assets/fondo potada .webp');">
-        
-        <img src="assets/elemento portada 2.webp" alt="hoja" 
-             class="absolute top-20 right-10 w-32 md:w-48 floating-element opacity-90">
-
-        <div class="relative z-10 text-center px-6">
-            <img src="assets/foto portada 1.webp" alt="Portada" class="mx-auto mb-8 rounded-3xl shadow-2xl max-w-md w-full">
-            <h1 class="font-title text-5xl md:text-7xl text-ensalada-naranja mb-6 drop-shadow-sm">
-                Frescura en cada bocado
-            </h1>
-            <a href="#faq" class="inline-block bg-ensalada-verde text-white font-semibold px-8 py-4 rounded-full hover:scale-105 transition-transform uppercase tracking-wider">
-                Cómo puedo invertir
-            </a>
+            <div class="relative mx-auto h-[390px] w-full max-w-[420px]">
+                <div class="soft-shape absolute right-0 top-16 h-56 w-48 bg-gris"></div>
+                <div class="soft-shape absolute bottom-12 left-4 h-36 w-40 bg-verde"></div>
+                <img src="assets/foto portada 1.webp" alt="Ingredientes frescos" class="absolute left-6 top-0 w-48 rotate-1 shadow-suave">
+                <img src="assets/foto portada 2.webp" alt="Ensalada servida" class="absolute bottom-2 right-4 w-56 rotate-[8deg] shadow-suave">
+            </div>
         </div>
     </header>
 
-    <section class="relative py-24 bg-fixed bg-cover bg-center flex items-center" 
-             style="background-image: url('assets/fondo frase.webp');">
-        <div class="absolute inset-0 bg-white/40"></div>
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center gap-8">
-            <img src="assets/elemento frase 1.webp" alt="fruta" class="w-24 h-24">
-            <p class="font-title text-3xl md:text-4xl text-ensalada-marron text-center italic">
-                "Calidad que se nota, sabor que se siente."
-            </p>
-        </div>
-    </section>
+    <main>
+        <section id="modelo" class="relative overflow-hidden bg-white py-20 md:py-24">
+            <div class="soft-shape absolute -right-16 bottom-20 h-96 w-80 bg-gris"></div>
+            <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+                <p class="text-xl font-extrabold uppercase text-naranja">Modelo de negocio</p>
+                <p class="mx-auto mt-4 max-w-2xl text-sm font-bold text-text">Nos dedicamos a brindar almuerzos rápidos en centros urbanos y lugares de alto tránsito.</p>
+                <img src="assets/fotos portadas todas juntas.webp" alt="Mostrador con ingredientes Ensalada" class="mx-auto mt-12 w-full max-w-[730px] shadow-suave">
+                <p class="mx-auto mt-8 w-fit bg-verde px-4 py-2 text-lg font-extrabold leading-tight text-white">
+                    Únicas en sabor,<br>idénticas en frescura.
+                </p>
 
-    <section id="contacto" class="py-20 bg-gris-contacto">
-        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            
-            <div>
-                <img src="assets/foto contacto.webp" alt="Contacto" class="rounded-2xl shadow-lg border-8 border-white">
+                <div class="mt-14 grid gap-7 text-left md:grid-cols-2">
+                    <article class="rounded-xl bg-naranja p-9 text-white">
+                        <h2 class="text-2xl font-extrabold">Experiencia</h2>
+                        <p class="mt-4 text-sm leading-6">Ofrecemos una experiencia única en cada ensalada. Con más de 40 ingredientes, nuestras distintas bases y la libertad de armar, prepará combinaciones eligiendo cada elemento a tu gusto y agregale sabor.</p>
+                    </article>
+                    <article class="rounded-xl bg-arena p-9 text-white">
+                        <h2 class="text-2xl font-extrabold">Conveniencia</h2>
+                        <p class="mt-4 text-sm leading-6">La frescura de ingredientes seleccionados rigurosamente permite ofrecer opciones variadas, prácticas y listas para disfrutar.</p>
+                    </article>
+                    <article class="rounded-xl bg-violeta p-9 text-white">
+                        <h2 class="text-2xl font-extrabold">Innovación</h2>
+                        <p class="mt-4 text-sm leading-6">Reinventamos el concepto de comida rápida: nuestros clientes son saludables, frescos y de calidad.</p>
+                    </article>
+                    <article class="rounded-xl bg-verde p-9 text-white">
+                        <h2 class="text-2xl font-extrabold">Centro de producción</h2>
+                        <p class="mt-4 text-sm leading-6">Contamos con un centro de producción que abastece a nuestras bocas, permitiendo operar a gran escala y reducir costos.</p>
+                    </article>
+                </div>
+
+                <a href="#faq" class="mt-14 inline-flex rounded-full bg-naranja px-5 py-2 text-sm font-extrabold text-white transition hover:bg-verde">¿Cómo puedo invertir?</a>
             </div>
+        </section>
 
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gris-oscuro">
-                <h2 class="font-title text-3xl text-ensalada-violeta mb-6">Contactanos</h2>
-                <form id="mainForm" class="space-y-4">
-                    <input type="text" placeholder="Nombre" required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde">
-                    
-                    <select required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde">
-                        <option value="" disabled selected>¿Sos proveedor o inversor?</option>
-                        <option value="proveedor">Proveedor</option>
-                        <option value="inversor">Inversor</option>
-                    </select>
+        <section id="sucursales" class="bg-verde py-16 text-white">
+            <div class="mx-auto grid max-w-5xl items-center gap-10 px-6 md:grid-cols-2">
+                <div class="relative min-h-[370px]">
+                    <img src="assets/fotos sucursales todas juntas 2.webp" alt="Diseño de sucursales Ensalada" class="absolute left-2 top-0 w-[360px] max-w-[82%] rotate-[-2deg]">
+                    <img src="assets/foto sucursales 2.webp" alt="Mueble de sucursal" class="absolute bottom-0 right-10 w-[170px] rotate-[5deg] bg-white p-3 shadow-suave">
+                    <img src="assets/elemento sucursales 1.webp" alt="" class="absolute -bottom-16 -left-4 w-44">
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold uppercase">Sucursales actuales</h2>
+                    <ul class="mt-7 space-y-5 text-sm font-bold">
+                        <li>⌖ Calle 6 entre 49 y 50, La Plata</li>
+                        <li>⌖ Calle 48 entre 12 y 13, La Plata</li>
+                        <li>⌖ Calle 50 entre 8 y 9, La Plata</li>
+                        <li>⌖ Calle 473 bis y diag. Jorge Bell, City Bell</li>
+                    </ul>
+                    <h2 class="mt-10 text-xl font-extrabold uppercase">Próximas sucursales</h2>
+                    <ul class="mt-7 space-y-5 text-sm font-bold">
+                        <li>⌖ Calle 57 entre 7 y 8, La Plata</li>
+                        <li>⌖ Calle 4 entre 7 y 8, La Plata</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                    <textarea placeholder="Tu mensaje" rows="4" required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde"></textarea>
-                    
-                    <button type="submit" class="w-full bg-ensalada-naranja text-white font-bold py-4 rounded-lg hover:brightness-110 transition-all">
-                        Enviar mensaje
-                    </button>
+        <section id="somos" class="bg-white py-20 md:py-24">
+            <div class="mx-auto max-w-3xl px-6">
+                <h2 class="text-center text-xl font-extrabold uppercase text-naranja">Somos Ensalada</h2>
+                <p class="mt-7 text-center text-sm font-bold">Más que un espacio, un concepto innovador que redefine la comida rápida.</p>
+                <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-6">Con cuatro locales en funcionamiento y dos en camino, estamos listos para expandir esta visión a más espacios de la ciudad.</p>
+
+                <div class="mt-12 space-y-9">
+                    <div class="grid gap-5 md:grid-cols-[70px_1fr]">
+                        <img src="assets/icono somos ensalada 1.webp" alt="" class="w-16">
+                        <p class="text-sm leading-6"><strong class="text-naranja">Misión:</strong> Crear espacios de comidas rápidas, saludables, variadas y accesibles, brindando productos frescos y prácticos.</p>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-[70px_1fr]">
+                        <img src="assets/icono somos ensalada 2.webp" alt="" class="w-16">
+                        <p class="text-sm leading-6"><strong class="text-naranja">Visión:</strong> Reinventar el concepto de comida rápida, revolucionando la alimentación cotidiana.</p>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-[70px_1fr]">
+                        <img src="assets/icono somos ensalada 3.webp" alt="" class="w-16">
+                        <p class="text-sm leading-6"><strong class="text-naranja">Valores:</strong> Popular, saludable, compromiso, servicio eficiente, higiene y seguridad alimentaria en todos los procesos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative overflow-hidden bg-cover bg-center py-24" style="background-image: url('assets/fondo frase.webp');">
+            <div class="absolute inset-0 bg-verde/45"></div>
+            <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+                <p class="space-y-3 text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                    <span class="inline-block bg-naranja px-4 py-1">Donde lo rápido</span><br>
+                    <span class="inline-block bg-naranja px-4 py-1">se encuentra con lo saludable.</span>
+                </p>
+            </div>
+            <img src="assets/elemento frase 1.webp" alt="" class="absolute -bottom-10 right-[8%] w-40 md:w-52">
+        </section>
+
+        <section id="faq" class="bg-white py-20">
+            <div class="mx-auto max-w-3xl px-6">
+                <h2 class="text-center text-xl font-extrabold uppercase text-naranja">Preguntas frecuentes</h2>
+                <div class="mt-10 space-y-4">
+                    <details class="rounded-md bg-verde text-white">
+                        <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-3 font-extrabold">¿Cómo puedo participar en el negocio?<span class="faq-plus transition">+</span></summary>
+                        <p class="faq-content bg-white px-5 py-4 text-sm leading-6 text-text">Si bien tenemos nuestro propio centro de producción, estamos abiertos a colaborar con proveedores que compartan nuestra visión.</p>
+                    </details>
+                    <details class="rounded-md bg-verde text-white" open>
+                        <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-3 font-extrabold">¿Puedo ser su proveedor de alimentos y/o productos?<span class="faq-plus transition">+</span></summary>
+                        <p class="faq-content bg-white px-5 py-4 text-sm leading-6 text-text">Buscamos verduras, insumos o condimentos que puedan complementar nuestra oferta. Nos encantaría conocerte.</p>
+                    </details>
+                    <details class="rounded-md bg-verde text-white">
+                        <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-3 font-extrabold">¿Sólo ofrecen opciones de ensalada?<span class="faq-plus transition">+</span></summary>
+                        <p class="faq-content bg-white px-5 py-4 text-sm leading-6 text-text">La propuesta principal son ensaladas armadas a gusto, con opciones rápidas y saludables para distintos momentos del día.</p>
+                    </details>
+                    <details class="rounded-md bg-verde text-white">
+                        <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-3 font-extrabold">¿Puedo trabajar con ustedes?<span class="faq-plus transition">+</span></summary>
+                        <p class="faq-content bg-white px-5 py-4 text-sm leading-6 text-text">Podés escribirnos desde el formulario de contacto y contarnos tu perfil.</p>
+                    </details>
+                    <details class="rounded-md bg-verde text-white">
+                        <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-3 font-extrabold">¿Cómo compro mi ensalada?<span class="faq-plus transition">+</span></summary>
+                        <p class="faq-content bg-white px-5 py-4 text-sm leading-6 text-text">Visitá cualquiera de nuestras sucursales y elegí tus ingredientes favoritos.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="bg-white pb-24">
+            <div class="mx-auto grid max-w-4xl gap-10 px-6 md:grid-cols-2">
+                <div>
+                    <h2 class="text-xl font-extrabold uppercase text-naranja">Contacto</h2>
+                    <p class="mt-5 text-sm font-bold">¡Nos encantaría saber de vos!</p>
+                    <p class="mt-2 text-sm leading-6">Si te interesa nuestro sistema de franquicias o sos un proveedor que desea colaborar con nosotros, nos gustaría conocerte.</p>
+                    <a href="#contactForm" class="mt-3 inline-block rounded bg-naranja px-3 py-1 text-sm font-bold text-white">Contactate</a>
+                    <img src="assets/foto contacto.webp" alt="Ensalada servida" class="mt-10 w-full rounded-2xl shadow-suave">
+                </div>
+                <form id="contactForm" class="rounded-2xl bg-gris p-7">
+                    <div class="space-y-4">
+                        <input id="name" type="text" placeholder="Nombre y apellido" required class="w-full rounded-md border-0 bg-white/55 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-verde">
+                        <select id="profile" required class="w-full rounded-md border-0 bg-white/55 px-4 py-3 text-sm text-gray-500 outline-none focus:ring-2 focus:ring-verde">
+                            <option value="" disabled selected>¿Proveedor o inversor?</option>
+                            <option value="proveedor">Proveedor</option>
+                            <option value="inversor">Inversor</option>
+                        </select>
+                        <input id="product" type="text" placeholder="Producto actual" class="w-full rounded-md border-0 bg-white/55 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-verde">
+                        <input id="cell" type="tel" placeholder="Celular" class="w-full rounded-md border-0 bg-white/55 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-verde">
+                        <input id="email" type="email" placeholder="Email" required class="w-full rounded-md border-0 bg-white/55 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-verde">
+                        <textarea id="message" placeholder="Consulta" rows="6" required class="w-full resize-none rounded-md border-0 bg-white/55 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-verde"></textarea>
+                    </div>
+                    <p id="responseMsg" class="mt-4 hidden text-sm font-bold"></p>
+                    <button type="submit" class="mt-5 float-right rounded-full bg-naranja px-6 py-2 text-sm font-extrabold text-white transition hover:bg-verde"><span id="btnText">Enviar</span></button>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="bg-white py-10 border-t border-gris-oscuro">
-        <div class="text-center">
-            <img src="assets/favicon.webp" alt="Logo" class="w-12 mx-auto mb-4">
-            <p class="text-sm text-gray-400">© 2026 Ensalada. Todos los derechos reservados.</p>
+    <footer class="bg-naranja py-16 text-white">
+        <div class="mx-auto grid max-w-5xl items-center gap-8 px-6 md:grid-cols-[220px_1fr_120px]">
+            <img src="assets/logotipo portada.webp" alt="Ensalada" class="w-44 brightness-0 invert">
+            <p class="max-w-xl text-sm leading-6">Somos un espacio de comida rápida, saludable, variada y accesible, que brinda productos frescos y prácticos, satisfaciendo las necesidades alimenticias de nuestros clientes con calidad y eficiencia.</p>
+            <div class="grid grid-cols-2 gap-5">
+                <span class="h-8 w-8 rounded-full bg-white"></span>
+                <span class="h-8 w-8 rounded-full bg-white"></span>
+                <span class="h-8 w-8 rounded-full bg-white"></span>
+                <span class="h-8 w-8 rounded-full bg-white"></span>
+            </div>
         </div>
     </footer>
 
+    <script src="funciones.js"></script>
 </body>
 </html>
