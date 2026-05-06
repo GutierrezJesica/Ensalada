@@ -3,64 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensalada - Landing Page</title>
+    <title>Ensalada | Landing Page</title>
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Righteous&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ensalada-naranja': '#F47C3A',
+                        'ensalada-verde': '#8CA966',
+                        'ensalada-marron': '#D8AD8C',
+                        'ensalada-violeta': '#A981B6',
+                        'gris-contacto': '#E6E7E8',
+                        'gris-oscuro': '#D2D3D5',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        title: ['Righteous', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .floating-element { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-[#f9f9f9] font-sans">
 
-    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter">ENSALADA</div>
-            <div class="hidden md:flex space-x-8 font-medium text-sm">
-                <a href="#inicio" class="hover:text-green-600 transition">Inicio</a>
-                <a href="#servicios" class="hover:text-green-600 transition">Servicios</a>
-                <a href="#contacto" class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Contacto</a>
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center" 
+            style="background-image: url('assets/fondo potada .webp');">
+        
+        <img src="assets/elemento portada 2.webp" alt="hoja" 
+             class="absolute top-20 right-10 w-32 md:w-48 floating-element opacity-90">
+
+        <div class="relative z-10 text-center px-6">
+            <img src="assets/foto portada 1.webp" alt="Portada" class="mx-auto mb-8 rounded-3xl shadow-2xl max-w-md w-full">
+            <h1 class="font-title text-5xl md:text-7xl text-ensalada-naranja mb-6 drop-shadow-sm">
+                Frescura en cada bocado
+            </h1>
+            <a href="#faq" class="inline-block bg-ensalada-verde text-white font-semibold px-8 py-4 rounded-full hover:scale-105 transition-transform uppercase tracking-wider">
+                Cómo puedo invertir
+            </a>
+        </div>
+    </header>
+
+    <section class="relative py-24 bg-fixed bg-cover bg-center flex items-center" 
+             style="background-image: url('assets/fondo frase.webp');">
+        <div class="absolute inset-0 bg-white/40"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center gap-8">
+            <img src="assets/elemento frase 1.webp" alt="fruta" class="w-24 h-24">
+            <p class="font-title text-3xl md:text-4xl text-ensalada-marron text-center italic">
+                "Calidad que se nota, sabor que se siente."
+            </p>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-gris-contacto">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            
+            <div>
+                <img src="assets/foto contacto.webp" alt="Contacto" class="rounded-2xl shadow-lg border-8 border-white">
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gris-oscuro">
+                <h2 class="font-title text-3xl text-ensalada-violeta mb-6">Contactanos</h2>
+                <form id="mainForm" class="space-y-4">
+                    <input type="text" placeholder="Nombre" required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde">
+                    
+                    <select required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde">
+                        <option value="" disabled selected>¿Sos proveedor o inversor?</option>
+                        <option value="proveedor">Proveedor</option>
+                        <option value="inversor">Inversor</option>
+                    </select>
+
+                    <textarea placeholder="Tu mensaje" rows="4" required class="w-full p-3 bg-gray-50 border border-gris-oscuro rounded-lg outline-none focus:ring-2 focus:ring-ensalada-verde"></textarea>
+                    
+                    <button type="submit" class="w-full bg-ensalada-naranja text-white font-bold py-4 rounded-lg hover:brightness-110 transition-all">
+                        Enviar mensaje
+                    </button>
+                </form>
             </div>
         </div>
-    </nav>
-
-    <section id="inicio" class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center fade-in">
-            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                Creamos contenido que <span class="text-green-600">alimenta</span> tu marca.
-            </h1>
-            <p class="text-xl text-gray-500 mb-10">Agencia creativa enfocada en potenciar tu presencia digital con estrategia y diseño.</p>
-            <a href="#contacto" class="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg transition">Trabajemos juntos</a>
-        </div>
     </section>
 
-    <section id="contacto" class="py-20 bg-gray-50 px-6">
-        <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
-            <h2 class="text-3xl font-bold mb-2">Hablemos</h2>
-            <p class="text-gray-500 mb-8">Contanos sobre tu proyecto y nos pondremos en contacto a la brevedad.</p>
-            
-            <form id="contactForm" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Nombre</label>
-                    <input type="text" id="name" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Email</label>
-                    <input type="email" id="email" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Mensaje</label>
-                    <textarea id="message" rows="4" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-black text-white font-bold py-4 rounded-lg hover:bg-gray-900 transition flex justify-center items-center">
-                    <span id="btnText">Enviar Solicitud</span>
-                </button>
-            </form>
-            <div id="responseMsg" class="mt-4 hidden text-center font-medium"></div>
+    <footer class="bg-white py-10 border-t border-gris-oscuro">
+        <div class="text-center">
+            <img src="assets/favicon.webp" alt="Logo" class="w-12 mx-auto mb-4">
+            <p class="text-sm text-gray-400">© 2026 Ensalada. Todos los derechos reservados.</p>
         </div>
-    </section>
+    </footer>
 
-    <script src="js/main.js"></script>
 </body>
 </html>
