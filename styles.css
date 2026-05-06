@@ -144,15 +144,6 @@ a {
     margin: 0 auto;
 }
 
-.shape--gray {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    width: 192px;
-    height: 224px;
-    background: var(--gray);
-}
-
 .shape--green {
     position: absolute;
     bottom: 48px;
