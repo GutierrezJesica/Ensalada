@@ -209,11 +209,20 @@ a {
     font-weight: 700;
 }
 
-.business__image {
+.business__image,
+.business__video {
     width: min(100%, 730px);
     margin: 48px auto 0;
     background: transparent;
     filter: drop-shadow(0 18px 26px rgba(70, 58, 48, .16));
+}
+
+.business__video {
+    display: block;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 0;
+    object-fit: cover;
 }
 
 .business__badge {
