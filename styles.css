@@ -494,9 +494,9 @@ a {
 
 .faq summary span {
     position: relative;
-    width: 14px;
-    height: 14px;
-    flex: 0 0 14px;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
     transition: transform .2s ease;
 }
 
@@ -504,25 +504,32 @@ a {
 .faq summary span::after {
     content: "";
     position: absolute;
-    top: 6px;
-    width: 10px;
+    top: 8px;
+    left: 2px;
+    width: 14px;
     height: 3px;
     border-radius: 999px;
     background: currentColor;
 }
 
-.faq summary span::before {
-    left: 0;
+.faq summary span::after {
+    transform: rotate(90deg);
+}
+
+.faq details[open] summary span::before {
+    left: 1px;
+    width: 11px;
     transform: rotate(45deg);
 }
 
-.faq summary span::after {
-    right: 0;
+.faq details[open] summary span::after {
+    left: 7px;
+    width: 11px;
     transform: rotate(-45deg);
 }
 
 .faq details[open] summary span {
-    transform: rotate(180deg);
+    transform: none;
 }
 
 .faq details p {
