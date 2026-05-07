@@ -457,29 +457,33 @@ a {
 }
 
 .faq {
-    padding: 80px 0;
+    padding: 80px 0 88px;
     background: #fff;
 }
 
 .faq__list {
     display: grid;
-    gap: 16px;
+    gap: 34px;
     margin-top: 40px;
 }
 
 .faq details {
-    overflow: hidden;
-    border-radius: 6px;
-    background: var(--green);
-    color: #fff;
+    overflow: visible;
+    background: transparent;
+    color: var(--text);
 }
 
 .faq summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    min-height: 56px;
+    padding: 14px 58px 14px 60px;
+    border-radius: 14px;
+    background: var(--green);
+    color: #fff;
     cursor: pointer;
+    font-size: 21px;
     font-weight: 800;
     list-style: none;
 }
@@ -489,20 +493,45 @@ a {
 }
 
 .faq summary span {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
     transition: transform .2s ease;
 }
 
-.faq details[open] summary span {
+.faq summary span::before,
+.faq summary span::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    width: 10px;
+    height: 3px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.faq summary span::before {
+    left: 0;
     transform: rotate(45deg);
 }
 
+.faq summary span::after {
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+.faq details[open] summary span {
+    transform: rotate(180deg);
+}
+
 .faq details p {
-    margin: 0;
-    padding: 16px 20px;
+    margin: 30px 0 6px;
+    padding: 0 66px;
     background: #fff;
     color: var(--text);
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.45;
 }
 
 .contact {
@@ -657,6 +686,21 @@ a {
 
     .feature-grid {
         grid-template-columns: 1fr;
+    }
+
+    .faq__list {
+        gap: 24px;
+    }
+
+    .faq summary {
+        padding: 14px 22px;
+        font-size: 16px;
+    }
+
+    .faq details p {
+        margin-top: 18px;
+        padding: 0 8px;
+        font-size: 15px;
     }
 
     .branches__media {
