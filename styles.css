@@ -419,17 +419,20 @@ a {
 .phrase {
     position: relative;
     overflow: hidden;
-    padding: 96px 24px;
+    min-height: 440px;
+    padding: 0 24px;
     background-image: url("assets/fondo frase.webp");
     background-position: center;
     background-size: cover;
+    display: grid;
+    place-items: center;
     text-align: center;
 }
 
 .phrase__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(140, 171, 103, .45);
+    background: rgba(140, 171, 103, .58);
 }
 
 .phrase__text {
@@ -437,23 +440,27 @@ a {
     z-index: 1;
     margin: 0;
     color: #fff;
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: clamp(32px, 4vw, 44px);
     font-weight: 800;
-    line-height: 1.35;
+    line-height: 1.25;
 }
 
 .phrase__text span {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 4px 16px;
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+    padding: 4px 22px;
     background: var(--orange);
 }
 
 .phrase__fruit {
     position: absolute;
-    right: 8%;
-    bottom: -40px;
-    width: 210px;
+    z-index: 2;
+    top: 24px;
+    right: 18%;
+    width: 150px;
+    transform: translate3d(0, var(--phrase-fruit-y, 0px), 0);
+    will-change: transform;
 }
 
 .faq {
@@ -493,6 +500,7 @@ a {
 }
 
 .faq summary span {
+    display: inline-block;
     position: relative;
     width: 18px;
     height: 18px;
@@ -500,32 +508,36 @@ a {
     transition: transform .2s ease;
 }
 
-.faq summary span::before,
-.faq summary span::after {
-    content: "";
+.faq summary span::before {
     position: absolute;
-    top: 8px;
-    left: 2px;
-    width: 14px;
-    height: 3px;
-    border-radius: 999px;
-    background: currentColor;
+    inset: 0;
+    color: currentColor;
+    content: "+";
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 18px;
+    text-align: center;
 }
 
 .faq summary span::after {
-    transform: rotate(90deg);
+    content: none;
 }
 
 .faq details[open] summary span::before {
-    left: 1px;
-    width: 11px;
+    content: "";
+    top: 2px;
+    right: auto;
+    bottom: auto;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
     transform: rotate(45deg);
 }
 
 .faq details[open] summary span::after {
-    left: 7px;
-    width: 11px;
-    transform: rotate(-45deg);
+    content: none;
 }
 
 .faq details[open] summary span {
@@ -725,8 +737,9 @@ a {
     }
 
     .phrase__fruit {
-        right: -24px;
-        width: 150px;
+        top: 16px;
+        right: 8px;
+        width: 96px;
     }
 
     .footer__inner {

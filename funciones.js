@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const phrase = document.querySelector('.phrase');
+    const phraseFruit = document.querySelector('.phrase__fruit');
+
+    if (phrase && phraseFruit) {
+        let ticking = false;
+
+        const updatePhraseParallax = () => {
+            const rect = phrase.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+            const clamped = Math.min(1, Math.max(0, progress));
+            const offset = (clamped - 0.5) * 70;
+
+            phraseFruit.style.setProperty('--phrase-fruit-y', `${offset}px`);
+            ticking = false;
+        };
+
+        const requestPhraseParallax = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updatePhraseParallax);
+                ticking = true;
+            }
+        };
+
+        updatePhraseParallax();
+        window.addEventListener('scroll', requestPhraseParallax, { passive: true });
+        window.addEventListener('resize', requestPhraseParallax);
+    }
+
     const form = document.getElementById('contactForm');
     const responseMsg = document.getElementById('responseMsg');
     const btnText = document.getElementById('btnText');
