@@ -187,15 +187,6 @@ a {
     background: #fff;
 }
 
-.business__shape {
-    position: absolute;
-    right: -64px;
-    bottom: 80px;
-    width: 320px;
-    height: 384px;
-    background: var(--gray);
-}
-
 .business__content {
     position: relative;
     z-index: 1;
@@ -204,7 +195,7 @@ a {
 
 .business__intro {
     max-width: 660px;
-    margin: 16px auto 0;
+    margin: 16px auto 60px;
     font-size: 14px;
     font-weight: 600;
 }
@@ -212,7 +203,7 @@ a {
 .business__image,
 .business__video {
     width: min(100%, 730px);
-    margin: 48px auto 0;
+    margin: 48px auto;
     background: transparent;
     filter: drop-shadow(0 18px 26px rgba(70, 58, 48, .16));
 }
@@ -227,12 +218,12 @@ a {
 
 .business__badge {
     width: fit-content;
-    margin: 32px auto 0;
+    margin: 5px auto 0;
     padding: 8px 16px;
     background: var(--green);
     color: #fff;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1.25;
 }
 
@@ -418,7 +409,7 @@ a {
 
 .phrase {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     min-height: 440px;
     padding: 0 24px;
     background-image: url("assets/fondo frase.webp");
@@ -456,10 +447,11 @@ a {
 .phrase__fruit {
     position: absolute;
     z-index: 2;
-    top: clamp(28px, 6vw, 58px);
+    top: clamp(-18px, 2vw, 28px);
     right: clamp(20px, 16vw, 300px);
     width: clamp(112px, 9vw, 154px);
     transform: translate3d(0, var(--phrase-fruit-y, 0px), 0);
+    transition: transform .18s ease-out;
     will-change: transform;
 }
 
@@ -737,7 +729,7 @@ a {
     }
 
     .phrase__fruit {
-        top: 18px;
+        top: -12px;
         right: 10px;
         width: 92px;
     }

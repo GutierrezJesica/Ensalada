@@ -4,15 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (phrase && phraseFruit) {
         let ticking = false;
+        let lastScrollY = window.scrollY || window.pageYOffset;
+        let fruitOffset = 0;
 
         const updatePhraseParallax = () => {
             const rect = phrase.getBoundingClientRect();
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-            const clamped = Math.min(1, Math.max(0, progress));
-            const offset = clamped * 54;
+            const currentScrollY = window.scrollY || window.pageYOffset;
+            const direction = currentScrollY > lastScrollY ? 1 : -1;
+            const isVisible = rect.bottom > -220 && rect.top < window.innerHeight + 220;
 
-            phraseFruit.style.setProperty('--phrase-fruit-y', `${offset}px`);
+            if (isVisible && currentScrollY !== lastScrollY) {
+                fruitOffset += direction * 12;
+                fruitOffset = Math.min(170, Math.max(-120, fruitOffset));
+                phraseFruit.style.setProperty('--phrase-fruit-y', `${fruitOffset}px`);
+            }
+
+            lastScrollY = currentScrollY;
             ticking = false;
         };
 
