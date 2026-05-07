@@ -23,12 +23,22 @@ Sitio web de un proyecto de comida rápida saludable, construido con HTML, CSS y
 3. Ejecuta el servidor: `npm start`
 4. El sitio estará disponible en `http://localhost:3000`
 
+## Deployment en producción
+Para desplegar en DonWeb (Panel Ferozo), consulta:
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Guía completa de deployment
+- **[DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)** - Checklist paso a paso
+
 ## Estructura principal
-- `index.html`: punto de entrada del sitio.
-- `styles.css`: estilos globales y específicos de componentes.
-- `funciones.js`: lógica del frontend.
-- `server.js`: backend para formulario y emails.
-- `assets/`: imágenes, íconos, video y favicon.
+- `public/`: Archivos estáticos (HTML, CSS, JS, imágenes)
+  - `index.html`: Punto de entrada
+  - `styles.css`: Estilos
+  - `funciones.js`: Lógica frontend
+  - `assets/`: Imágenes, video y favicon
+- `uploads/`: Carpeta para CVs subidos (se crea automáticamente)
+- `server.js`: Backend con Express
+- `package.json`: Dependencias y scripts
+- `.env`: Variables de entorno (NO subir al repo)
+- `.env.example`: Plantilla de variables de entorno
 
 ## Observaciones
 - El proyecto incluye backend para procesar formularios y enviar CV por email.

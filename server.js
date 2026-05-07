@@ -42,8 +42,8 @@ const upload = multer({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname)));
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configurar nodemailer (usar Gmail como ejemplo, cambiar por credenciales reales)
 const transporter = nodemailer.createTransport({
