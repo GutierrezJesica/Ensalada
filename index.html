@@ -157,13 +157,15 @@
                     <a href="#contactForm" class="button button--tiny">Contactate</a>
                     <img src="assets/foto contacto.webp" alt="Ensalada servida" class="contact__image">
                 </div>
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" enctype="multipart/form-data">
                     <input id="name" type="text" placeholder="Nombre y apellido" required>
                     <select id="profile" required>
-                        <option value="" disabled selected>¿Proveedor o inversor?</option>
+                        <option value="" disabled selected>Seleccione una opción</option>
                         <option value="proveedor">Proveedor</option>
                         <option value="inversor">Inversor</option>
+                        <option value="trabaja">Trabaja con nosotros</option>
                     </select>
+                    <input id="cv" type="file" accept=".pdf,.doc,.docx" style="display:none;" placeholder="Cargar CV (PDF o DOC, máx. 1GB)">
                     <input id="product" type="text" placeholder="Producto actual">
                     <input id="cell" type="tel" placeholder="Celular">
                     <input id="email" type="email" placeholder="Email" required>

@@ -38,31 +38,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
     const responseMsg = document.getElementById('responseMsg');
     const btnText = document.getElementById('btnText');
+    const profileSelect = document.getElementById('profile');
+    const cvInput = document.getElementById('cv');
 
     if (!form || !responseMsg || !btnText) return;
 
-    form.addEventListener('submit', (event) => {
+    if (profileSelect && cvInput) {
+        profileSelect.addEventListener('change', () => {
+            if (profileSelect.value === 'trabaja') {
+                cvInput.style.display = 'block';
+            } else {
+                cvInput.style.display = 'none';
+            }
+        });
+    }
+
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        if (cvInput.files[0] && cvInput.files[0].size > 1024 * 1024 * 1024) {
+            responseMsg.classList.remove('hidden');
+            responseMsg.innerText = 'El archivo CV es demasiado grande (máx. 1GB).';
+            responseMsg.classList.add('form-message--error');
+            responseMsg.classList.remove('text-green-700');
+            return;
+        }
 
         btnText.innerText = 'Enviando...';
 
-        const formData = {
-            name: document.getElementById('name').value,
-            profile: document.getElementById('profile').value,
-            product: document.getElementById('product').value,
-            cell: document.getElementById('cell').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
+        const formData = new FormData();
+        formData.append('name', document.getElementById('name').value);
+        formData.append('profile', document.getElementById('profile').value);
+        formData.append('product', document.getElementById('product').value);
+        formData.append('cell', document.getElementById('cell').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('message', document.getElementById('message').value);
+        if (cvInput.files[0]) {
+            formData.append('cv', cvInput.files[0]);
+        }
 
-        console.log('Datos capturados:', formData);
+        try {
+            const response = await fetch('/contact', {
+                method: 'POST',
+                body: formData
+            });
 
-        setTimeout(() => {
-            btnText.innerText = 'Enviar';
+            const result = await response.json();
+
+            if (response.ok) {
+                responseMsg.classList.remove('hidden');
+                responseMsg.innerText = 'Gracias! Tu mensaje ha sido enviado.';
+                responseMsg.classList.add('text-green-700');
+                responseMsg.classList.remove('form-message--error');
+                form.reset();
+                cvInput.style.display = 'none';
+            } else {
+                throw new Error(result.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
             responseMsg.classList.remove('hidden');
-            responseMsg.innerText = 'Gracias! Tu mensaje ha sido enviado.';
-            responseMsg.classList.add('text-green-700');
-            form.reset();
-        }, 900);
+            responseMsg.innerText = 'Error enviando mensaje. Intenta de nuevo.';
+            responseMsg.classList.add('form-message--error');
+            responseMsg.classList.remove('text-green-700');
+        } finally {
+            btnText.innerText = 'Enviar';
+        }
     });
 });

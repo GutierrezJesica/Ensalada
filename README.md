@@ -1,32 +1,36 @@
 # Ensalada
 
 ## Descripción
-Sitio web estático de un proyecto de comida rápida saludable, construido con HTML, CSS y JavaScript vanilla.
+Sitio web de un proyecto de comida rápida saludable, construido con HTML, CSS y JavaScript vanilla, con backend en Node.js para manejo de formularios y envío de emails.
 
 ## Stack implementado
-- HTML para la estructura del contenido (`index.html`).
-- CSS artesanal en `styles.css` para el diseño visual.
-- JavaScript puro en `funciones.js` para interacciones mínimas:
-  - efecto parallax en la sección de frase.
-  - simulación de envío de formulario con feedback.
-- Fuentes web importadas desde Google Fonts:
-  - `Poppins`
-  - `Righteous`
+- **Frontend:**
+  - HTML para la estructura del contenido (`index.html`).
+  - CSS artesanal en `styles.css` para el diseño visual.
+  - JavaScript puro en `funciones.js` para interacciones:
+    - Efecto parallax en la sección de frase.
+    - Manejo dinámico del formulario de contacto con envío asíncrono.
+  - Fuentes web importadas desde Google Fonts: `Poppins` y `Righteous`.
 
-## Herramientas de desarrollo
-- El proyecto ya no usa Tailwind ni PostCSS en el frontend.
-- `package.json` quedó vacío porque no hay dependencias ni herramientas de build activas.
-- Se eliminaron `node_modules/` y `package-lock.json` para mantener el proyecto limpio y enfocado en el sitio estático.
-- No se encontraron archivos de configuración de build en el repositorio (por ejemplo, `postcss.config.js`, `tailwind.config.js` o scripts de npm).
-- No hay clases de Tailwind utilizadas en el HTML, por lo que la implementación era innecesaria.
+- **Backend:**
+  - Node.js con Express para servidor HTTP.
+  - Multer para manejo de archivos subidos (CV).
+  - Nodemailer para envío de emails con adjuntos.
+
+## Configuración y ejecución
+1. Copia `.env.example` a `.env` y configura tus credenciales de email.
+2. Instala dependencias: `npm install`
+3. Ejecuta el servidor: `npm start`
+4. El sitio estará disponible en `http://localhost:3000`
 
 ## Estructura principal
 - `index.html`: punto de entrada del sitio.
 - `styles.css`: estilos globales y específicos de componentes.
 - `funciones.js`: lógica del frontend.
+- `server.js`: backend para formulario y emails.
 - `assets/`: imágenes, íconos, video y favicon.
 
 ## Observaciones
-- El proyecto es autosoportado como un sitio estático; no hay backend ni API integrada.
-- La migración se describe como "De Wordpress a full code", lo que sugiere una conversión de contenido a código estático.
-- Para activar un proceso de compilación CSS sería necesario agregar configuración de PostCSS/Tailwind y scripts de npm.
+- El proyecto incluye backend para procesar formularios y enviar CV por email.
+- La migración se describe como "De Wordpress a full code".
+- No usa Tailwind ni PostCSS; se eliminaron inicialmente pero se agregó backend posteriormente.
