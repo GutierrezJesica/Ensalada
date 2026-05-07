@@ -441,7 +441,7 @@ a {
     margin: 0;
     color: #fff;
     font-size: clamp(32px, 4vw, 44px);
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.25;
 }
 
@@ -491,7 +491,7 @@ a {
     color: #fff;
     cursor: pointer;
     font-size: 21px;
-    font-weight: 800;
+    font-weight: 600;
     list-style: none;
 }
 
