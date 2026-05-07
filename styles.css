@@ -456,9 +456,9 @@ a {
 .phrase__fruit {
     position: absolute;
     z-index: 2;
-    top: 24px;
-    right: 18%;
-    width: 150px;
+    top: clamp(28px, 6vw, 58px);
+    right: clamp(20px, 16vw, 300px);
+    width: clamp(112px, 9vw, 154px);
     transform: translate3d(0, var(--phrase-fruit-y, 0px), 0);
     will-change: transform;
 }
@@ -737,9 +737,9 @@ a {
     }
 
     .phrase__fruit {
-        top: 16px;
-        right: 8px;
-        width: 96px;
+        top: 18px;
+        right: 10px;
+        width: 92px;
     }
 
     .footer__inner {

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
             const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
             const clamped = Math.min(1, Math.max(0, progress));
-            const offset = (clamped - 0.5) * 70;
+            const offset = clamped * 54;
 
             phraseFruit.style.setProperty('--phrase-fruit-y', `${offset}px`);
             ticking = false;
