@@ -390,8 +390,9 @@ a {
 
 .about__items {
     display: grid;
+    max-width: 500px;
     gap: 36px;
-    margin-top: 48px;
+    margin: 48px auto 0;
 }
 
 .about-item {
